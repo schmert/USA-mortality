@@ -67,7 +67,7 @@ ggplot(data=adult.mortality.df, aes(x=Year, y=q2565,
         labs(title='Prob of Death Between Ages 25-65\n(40q25, both sexes combined)',
              caption='Source: US Mortality Database http://usa.mortality.org') +
         geom_text(data=filter(adult.mortality.df, Year==max(Year)),
-                  aes(x=2016, y=q2565, label=division_name),hjust= 0, 
+                  aes(x=2016, y=q2565, label=division_name),hjust= 0, vjust=2,
                   size=4, face='bold') +
         guides(color=FALSE)  
       
