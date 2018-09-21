@@ -52,7 +52,7 @@ ggplot(data = filter(keep.df, Year %in% c(1965,1990,2015)),
   geom_text( aes(x=50, y=65.0), label='1965', size=5, col='red') +
   geom_text( aes(x=50, y=69.0), label='1990', size=5, col='blue') +
   geom_text( aes(x=50, y=72.0), label='2015', size=5, col='black') +
-  labs(title='At which you can expect to live 15 more years?\nby state of residence',
+  labs(title='At which age you can expect to live 15 more years?\nby state of residence',
      x='', 
      y='Age at which e(x)=15',
      caption='Both sexes combined, from US Mortality Database http://usa.mortality.org') +
