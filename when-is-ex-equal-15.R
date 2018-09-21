@@ -46,18 +46,19 @@ keep.df = state.df %>%
 
 ggplot(data = filter(keep.df, Year %in% c(1965,1990,2015)),
        aes(x=rank15, y=x15, label=PopName, color=as.factor(Year))) + 
-  geom_text(size=2.2,  fontface='bold') +
+  geom_text(size=2.8,  fontface='bold') +
   scale_color_manual(values=c('red','blue','black')) +
   guides(color=FALSE) +
   geom_text( aes(x=50, y=65.0), label='1965', size=5, col='red') +
   geom_text( aes(x=50, y=69.0), label='1990', size=5, col='blue') +
   geom_text( aes(x=50, y=72.0), label='2015', size=5, col='black') +
   labs(title='At which age you can expect to live 15 more years?\nby state of residence',
-     x='', 
+     x='State Rank', 
      y='Age at which e(x)=15',
      caption='Both sexes combined, from US Mortality Database http://usa.mortality.org') +
   theme(text=element_text(face='bold')) +
-  theme_bw() 
+  theme_bw() +
+  coord_flip()
   
 
-ggsave(file='when-is-ex-equal-15.png')
+ggsave(file='when-is-ex-equal-15.png', height=8.5, width=11)
