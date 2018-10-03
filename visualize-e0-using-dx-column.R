@@ -4,7 +4,9 @@
 # altered 03 Oct 18
 #
 # visualize remaining life expectancy
+
 #---------------------------------------------
+# devtools::install_github('thomasp85/gganimate')
 
 rm(list=ls())
 library(tidyverse)
