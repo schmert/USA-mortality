@@ -58,4 +58,4 @@ G = ggplot(data=keep.df,
 G
 
 
-ggsave(file='outlive-ex.png', height=11, width=8)
+ggsave(file='outlive-ex.png', height=8, width=8)
