@@ -21,21 +21,12 @@ USA$PopName = 'USA'
 # life table and return the probabilities of surviving longer
 # than e(x) at each age x in 0...100
 
-p_outlive = function(df) {
-  tmp = df %>% 
-           mutate(aad=Age+ex,
-           lx_aad= approx(x=df$Age,y=df$lx,xout=df$aad)$y/lx[1],
-           p_outlive = lx_aad)
-  return(tmp$p_outlive)
-}
-
 
 df = USA %>%
            group_by(Year) %>%
            mutate(aad=Age+ex,
                   lx_aad= approx(x=Age,y=lx,xout=aad)$y,
-                  p_outlive = lx_aad/lx,
-                  u = rep(runif(1),111))
+                  p_outlive = lx_aad/lx)
 
 keep.df = df %>%
            ungroup() %>%
