@@ -41,8 +41,8 @@ keep.df = state.df %>%
            summarize( x10 = e_inverse(10, ex),
                       x15 = e_inverse(15, ex)) %>%
            group_by(Year) %>% 
-           mutate (rank10 = rank(x10),
-                   rank15 = rank(x15))
+           mutate (rank10 = rank(x10, ties.method = 'first'),
+                   rank15 = rank(x15, ties.method = 'first'))
 
 ggplot(data = filter(keep.df, Year %in% c(1965,1990,2015)),
        aes(x=rank15, y=x15, label=PopName, color=as.factor(Year))) + 
