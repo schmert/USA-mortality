@@ -143,7 +143,7 @@ ggplot(df) +
   labs(x='State Median Household Income (in 2020 dollars)',
        y='Life Expectancy at Birth (e0), Both Sexes',
        caption=paste0('Calculations by @CSchmert\n',
-                      'HH income data: US Census Bureau',
+                      'HH income data: US Census Bureau\n',
                       'Life Expectancy data: US Mortality Database')) +
   theme_bw() +
   theme(axis.text = element_text(face='bold', size=12),
