@@ -1,0 +1,62 @@
+﻿-----------------------
+Table with row headers in column A and column headers in rows 8 through 9 and 63 through 64,,,,
+"Information on confidentiality protection, sampling error, nonsampling error, and definitions is available at <https://www2.census.gov/programs-surveys/cps/techdocs/cpsmar21.pdf>.",,,,
+Footnotes are available at <www.census.gov/topics/income-poverty/income/guidance/cps-historic-footnotes.html>.,,,,
+"Source: U.S. Census Bureau, Current Population Survey, 1985 to 2021 Annual Social and Economic Supplements (CPS ASEC).",,,,
+"(Households as of March of the following year. Income in current and 2020 CPI-U-RS adjusted dollars (28). Beginning in 2010, standard errors were calculated using replicate weights)",,,,
+Incomes in 2020 Dollars
+Table H-8. Median Household Income by State: 1984 to 2020, from 
+https://www2.census.gov/programs-surveys/cps/tables/time-series/historical-income-households/h08.xlsx
+------------------------
+state_name,inc2015,inc2005,inc1995,inc1985
+Alabama,48629 ,49361 ,43976 ,42176 
+Alaska,82066 ,74262 ,81137 ,80017 
+Arizona,57085 ,60116 ,52219 ,54930 
+Arkansas,46760 ,48707 ,43676 ,40147 
+California,69527 ,68766 ,62618 ,62071 
+Colorado,72761 ,67031 ,68873 ,64834 
+Connecticut,79637 ,75516 ,68090 ,71524 
+Delaware,63103 ,68075 ,59097 ,52866 
+District of Columbia,76558 ,59782 ,52025 ,48486 
+Florida,53345 ,57120 ,50328 ,49100 
+Georgia,55468 ,61021 ,57694 ,48424 
+Hawaii,70486 ,79171 ,72502 ,66626 
+Idaho,56403 ,58696 ,55287 ,47762 
+Illinois,66006 ,64306 ,64415 ,57215 
+Indiana,56795 ,56385 ,56486 ,52165 
+Iowa,66489 ,61784 ,60097 ,48143 
+Kansas,59944 ,55841 ,51336 ,52425 
+Kentucky,46311 ,48761 ,50438 ,39940 
+Louisiana,50173 ,49475 ,47289 ,48723 
+Maine,55455 ,58360 ,57287 ,47205 
+Maryland,80407 ,80401 ,69440 ,69329 
+Massachusetts,74143 ,74429 ,65266 ,64891 
+Michigan,59221 ,61031 ,61632 ,55770 
+Minnesota,75093 ,72035 ,64181 ,54882 
+Mississippi,43743 ,43681 ,44901 ,37759 
+Missouri,64676 ,57115 ,58923 ,50472 
+Montana,56153 ,49577 ,46964 ,46554 
+Nebraska,66072 ,63675 ,55715 ,50150 
+Nevada,56823 ,64055 ,61053 ,53543 
+New Hampshire,82681 ,75714 ,66276 ,60741 
+New Jersey,74685 ,84196 ,74318 ,71271 
+New Mexico,49296 ,51748 ,43976 ,46984 
+New York,63375 ,62682 ,55882 ,54383 
+North Carolina,55500 ,55879 ,54107 ,49349 
+North Dakota,62730 ,56060 ,49218 ,48783 
+Ohio,58235 ,58732 ,59119 ,57914 
+Oklahoma,51435 ,50018 ,44517 ,48783 
+Oregon,66466 ,58673 ,61544 ,50368 
+Pennsylvania,65980 ,61518 ,58413 ,52630 
+Rhode Island,60858 ,65749 ,59826 ,56651 
+South Carolina,50652 ,53453 ,49187 ,46094 
+South Dakota,60163 ,57334 ,50045 ,41736 
+Tennessee,51712 ,52358 ,49092 ,40899 
+Texas,61701 ,55037 ,54209 ,54622 
+Utah,72392 ,72829 ,61723 ,58061 
+Vermont,65002 ,67370 ,57229 ,59814 
+Virginia,67178 ,68977 ,61286 ,65402 
+Washington,73468 ,67293 ,60180 ,55213 
+West Virginia,46789 ,48424 ,42096 ,36770 
+Wisconsin,60556 ,59326 ,69294 ,53478 
+Wyoming,66565 ,59416 ,53346 ,50798 
