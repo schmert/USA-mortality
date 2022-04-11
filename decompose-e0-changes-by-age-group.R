@@ -99,29 +99,42 @@ disagg = data %>%
 
 show = function(abb) {
   
-tmp = filter(disagg, PopName == abb) %>% 
-       mutate(sign= 1*(gain>0),
-              hue = c('red', 'blue')[1+sign],
-              agegroup = factor(Age,
-                                levels=L,
-                                labels=groups))
-
-this_state = state.name[ state.abb==tmp$PopName[1]]
-
-G = ggplot(data=tmp) +
-  aes(x=agegroup, y=gain) +
-  geom_bar(stat='identity', fill=tmp$hue) +
-  labs(title='Life Expectancy Gains from Mortality Changes w/in Age Groups',
-         subtitle=paste0(this_state, ' 2000-2019, both sexes combined'),
-       y='Years of Life Gained',
-       x='Age Group',
-       caption = 'Source: US Mortality Database, https://usa.mortality.org') +
-  guides(fill='none') +
-  scale_y_continuous(limits=c(-0.65, 1.20),
-                     breaks=seq(-0.5, 1, .25)) +
-  theme_bw() 
+  tmp = filter(disagg, PopName == abb) %>% 
+         mutate(sign= 1*(gain>0),
+                hue = c('red', 'blue')[1+sign],
+                agegroup = factor(Age,
+                                  levels=L,
+                                  labels=groups))
   
-print(G)
+  this_state = state.name[ state.abb==tmp$PopName[1]]
+  
+  change_text = (tmp$ex_2019[1] - tmp$ex_2000[1]) %>% 
+                     sprintf("%3.2f", .)
+  
+  if (tmp$ex_2019[1] > tmp$ex_2000[1]) change_text = paste0('+', change_text)
+  
+  overall_change = paste0(this_state,
+                          ", 2000-2019\nTotal Change in Life Expectancy = ", 
+                          change_text, " yrs")
+  
+  G = ggplot(data=tmp) +
+    aes(x=agegroup, y=gain) +
+    geom_bar(stat='identity', fill=tmp$hue, alpha=.80) +
+    labs(title='Life Expectancy Gains from\nMortality Changes at different ages',
+           subtitle='Both sexes combined',
+         y='Years of Life Gained from Mortality Change',
+         x='Age Group',
+         caption = 'Source: US Mortality Database, https://usa.mortality.org') +
+    guides(fill='none') +
+    scale_y_continuous(limits=c(-0.65, 1.20),
+                       breaks=seq(-0.5, 1.25, .25)) +
+    geom_text(x=0.9, y=1.1, label=overall_change, size=5, hjust=0) +
+    theme_bw() +
+    theme(axis.title = element_text(face='bold'),
+          axis.text  = element_text(face='bold')
+          )
+    
+  print(G)
 }
 
 show('WV')
@@ -137,4 +150,14 @@ for (this_abb in state.abb) {
 }
 
 dev.off()
+
+G1 = show('WV')
+G2 = show('IN')
+G3 = show('NC')
+
+CP = cowplot::plot_grid( G1, G2, G3, nrow=1)
+
+ggsave(filename='three-states.png', plot=CP, height=6, width=15, dpi=300)
+
+
 
