@@ -19,13 +19,13 @@ library(tidyverse)
 
 need.to.build.df = !exists('big.state.df')
 
-included_states = state.abb   # (intentionally) excludes DC
+included_states = c('DC',state.abb)   # (intentionally) excludes DC
 
 if (need.to.build.df) {
   
   big.state.df = tibble()
   
-  for (this_sex in c('f','m')) {
+  for (this_sex in c('f','m','b')) {
     
     file_list = paste0('States/',included_states,'/',
                        included_states,'_',this_sex,'ltper_1x1.csv')
@@ -120,6 +120,15 @@ show = function(this_abb,this_sex) {
   
   this_state = state.name[ state.abb==tmp$PopName[1]]
   
+  this_max    = 1.25
+  this_text_y = 1.1
+  
+  if (this_abb == 'DC') {
+    this_state = 'District of Columbia'
+    this_max   = 1.6
+    this_text_y = 1.45
+  }  
+  
   change_text = (tmp$ex_2019[1] - tmp$ex_2000[1]) %>% 
                      sprintf("%3.2f", .)
   
@@ -139,9 +148,10 @@ show = function(this_abb,this_sex) {
          x='Age Group',
          caption = 'Source: US Mortality Database, https://usa.mortality.org') +
     guides(fill='none') +
-    scale_y_continuous(limits=c(-0.65, 1.20),
-                       breaks=seq(-0.5, 1.25, .25)) +
-    geom_text(x=0.9, y=1.1, label=overall_change, size=5, hjust=0) +
+    scale_y_continuous(limits=c(-0.65, this_max),
+                       breaks=seq(-0.5, 1.50, .25)) +
+    geom_text(x=0.9, y=this_text_y, 
+              label=overall_change, size=5, hjust=0) +
     theme_bw() +
     theme(axis.title = element_text(face='bold'),
           axis.text  = element_text(face='bold')
@@ -172,4 +182,21 @@ G2 = show('OH','m')
 CP = cowplot::plot_grid( G1, G2, nrow=1)
 
 ggsave(filename='OH.png', plot=CP, height=6, width=11, dpi=300)
+
+
+G1 = show('DC','f')
+G2 = show('DC','m')
+
+CP = cowplot::plot_grid( G1, G2, nrow=1)
+
+ggsave(filename='DC.png', plot=CP, height=6, width=11, dpi=300)
+
+
+G1 = show('TX','f')
+G2 = show('TX','m')
+
+CP = cowplot::plot_grid( G1, G2, nrow=1)
+
+ggsave(filename='TX.png', plot=CP, height=6, width=11, dpi=300)
+
 
